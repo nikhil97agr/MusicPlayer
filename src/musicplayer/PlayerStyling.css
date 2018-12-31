@@ -1,0 +1,55 @@
+#topBox, #bottomBox,#hBox
+{
+    -fx-background-color: black;
+    -fx-border-color: black;
+}
+
+#controlPane
+{
+    -fx-background-color: transparent;
+}
+
+#audioMode,#videoMode,#browse
+{
+    -fx-background-color: black;
+    -fx-border-color: black;
+    -fx-fill: white;
+}
+
+#audioMode:hover, #videoMode:hover, #browse:hover
+{
+   -fx-font-size: 150%;
+    
+}
+
+
+#mediaViewPane
+{
+    -fx-background-color: black;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+}
+
+#songList
+{
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    
+}
+
+.chart{
+    -fx-background-color: transparent; 
+}
+.axis {
+    -fx-tick-mark-visible: false;
+    -fx-minor-tick-visible: false;
+    -fx-minor-tick-length: 0;
+    -fx-border-color: transparent;
+}
+.axis-label {
+    -fx-text-fill: transparent;
+}
+.default-color0.chart-bar { 
+     -fx-background-color: linear-gradient(#ffff00,#ff0000);
+}
+

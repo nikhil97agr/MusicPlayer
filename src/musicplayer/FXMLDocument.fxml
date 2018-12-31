@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="musicplayer.FXMLDocumentController">
+   <top>
+      <HBox id="topBox" prefHeight="100.0" prefWidth="200.0" stylesheets="@PlayerStyling.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="audioMode" mnemonicParsing="false" prefHeight="32.0" prefWidth="81.0" text="Audio" textFill="WHITE" />
+            <Button fx:id="videoMode" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="81.0" text="Video" textFill="WHITE" />
+            <Button fx:id="browse" mnemonicParsing="false" onAction="#chooseFile" prefHeight="32.0" prefWidth="81.0" text="Browse" textFill="WHITE" />
+         </children></HBox>
+   </top>
+   <bottom>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <HBox id="bottomBox" spacing="2.0" stylesheets="@PlayerStyling.css">
+               <children>
+                  <Region opacity="0.0" prefHeight="29.0" prefWidth="245.0" />
+                  <Button fx:id="previousBtn" disable="true" mnemonicParsing="false" onAction="#previousButtonClicked">
+                     <graphic>
+                        <ImageView id="previous" fitHeight="49.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/previous.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button graphicTextGap="2.0" layoutX="255.0" layoutY="10.0" mnemonicParsing="false" onAction="#playButtonClicked">
+                     <graphic>
+                        <ImageView id="play" fx:id="play" fitHeight="49.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/play.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button id="stopButton" fx:id="stopBtn" disable="true" layoutX="381.0" layoutY="10.0" mnemonicParsing="false" onAction="#stopButtonClicked">
+                     <graphic>
+                        <ImageView id="stop" fitHeight="49.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/stop.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="nextBtn" disable="true" layoutX="444.0" layoutY="10.0" mnemonicParsing="false" onAction="#nextButtonClicked">
+                     <graphic>
+                        <ImageView id="next" fitHeight="49.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/next.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Slider fx:id="volumeSlider" prefHeight="24.0" prefWidth="274.0" />
+               </children>
+            </HBox>
+            <HBox id="hBox" stylesheets="@PlayerStyling.css">
+               <children>
+                  <Slider fx:id="seekBar" prefHeight="14.0" prefWidth="783.0" />
+               </children>
+            </HBox>
+            <HBox id="hBox" prefHeight="16.0" prefWidth="719.0" stylesheets="@PlayerStyling.css">
+               <children>
+                  <Label fx:id="statusLabel" contentDisplay="CENTER" lineSpacing="1.0" textAlignment="JUSTIFY" textFill="WHITE">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </Label>
+                  <Region nodeOrientation="LEFT_TO_RIGHT" stylesheets="@PlayerStyling.css" HBox.hgrow="SOMETIMES" />
+                  <Label fx:id="duration" textFill="WHITE" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+   <right>
+      <ListView id="songList" fx:id="list" prefHeight="375.0" prefWidth="214.0" stylesheets="@PlayerStyling.css" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <StackPane id="mediaViewPane" fx:id="mediaViewPane" prefHeight="150.0" prefWidth="200.0" stylesheets="@PlayerStyling.css" BorderPane.alignment="CENTER">
+               <children>
+                  <BarChart fx:id="spectrumBar" alternativeRowFillVisible="false" animated="false" barGap="0.0" categoryGap="0.0" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" tickLabelsVisible="false" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" tickLabelsVisible="false" />
+                    </yAxis>
+                  </BarChart>
+               </children></StackPane>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>
